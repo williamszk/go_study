@@ -2,28 +2,26 @@
 
 sudo systemctl status docker
 
-docker ps
+docker ps -a
 
 # Got permission denied while trying to connect to the Docker daemon socket at 
 # unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
 
 # https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
 
+# We use the code below in the case when we need to use sudo
+# to do any docker related commands
 sudo groupadd docker
-
 sudo usermod -aG docker $USER
-
 sudo systemctl restart docker
 
 # you may need to restart the machine
-
 su -s william
-
+# to test if the code above worked 
 docker run hello-world
 
 
-# 
-
+# create the docker container properly
 docker run --name go_study -it ubuntu /bin/bash
 
 # inside the container ----------------------------

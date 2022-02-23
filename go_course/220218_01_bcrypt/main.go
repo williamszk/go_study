@@ -1,6 +1,10 @@
-// https://www.youtube.com/watch?v=4vCb7jmwkzM&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg&index=120&ab_channel=AprendaGo
 package main
 
+// https://www.youtube.com/watch?v=4vCb7jmwkzM&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg&index=120&ab_channel=AprendaGo
+
+// SET GOPATH="C:\Users\william.suzuki\go\pkg\mod"
+// SET GOPATH="C:\Users\william.suzuki\go\src"
+// echo %GOPATH%
 import (
 	"fmt"
 

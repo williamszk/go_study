@@ -15,3 +15,7 @@ func main() {
 // to run with all files we need to do:
 // go run *.go
 // go run !(*).go
+
+// https://rakyll.org/style-packages/
+// next
+// https://www.youtube.com/watch?v=Y9QEvz4D_9E&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg&index=140&ab_channel=AprendaGo

@@ -26,3 +26,6 @@ func ReceivesByPointer(y *int) {
 	*y++
 	fmt.Println(*y)
 }
+
+// next:
+// https://www.youtube.com/watch?v=lSAVf0RgmHc&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg&index=111&ab_channel=AprendaGo

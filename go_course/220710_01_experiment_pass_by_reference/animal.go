@@ -15,6 +15,7 @@ func (a Animal) HandleFromInside() {
 // Animal *a
 // int *ptr
 func (ptr *Animal) HandleFromInsidePtrReceiver() {
+	// this first one is about the pointer itself, not the object that it points to
 	fmt.Printf("Calling from inside HandleFromInsidePtrReceiver() ptr: \t%p\n", &ptr)
 	fmt.Printf("Calling from inside HandleFromInsidePtrReceiver(): \t%p\n", ptr)
 }

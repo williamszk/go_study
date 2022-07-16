@@ -1,6 +1,5 @@
 # Objective
 
-
 Implement a simple static page with a Go back-end.
 
 We are using the code from another project: `220702_05_go_projects`

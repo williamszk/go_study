@@ -62,14 +62,19 @@ func deleteMovie(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	fmt.Println(params)
+	log.Println(params)
 	// params["id"]
 
+	// for i, v := range movies {
+	// 	if i.ID == params.id
+	// }
+
 	message := struct {
-		message string `json:"message"`
+		Message string `json:"message"`
 	}{
-		message: "Movie deleted",
+		Message: "Hello from delete",
 	}
+	// message: fmt.Sprintf("Message from the server ID: %s", string(params["id"])),
 
 	json.NewEncoder(w).Encode(message)
 
@@ -85,7 +90,7 @@ func main() {
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
 	// r.HandleFunc("/movies", createMovie).Methods("POST")
 	// r.HandleFunc("/movies/{id}", updateMovie).Methods("PUT")
-	// r.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
+	r.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
 
 	fmt.Println("Starting server at port 8000")
 	log.Fatal(http.ListenAndServe("localhost:8000", r))

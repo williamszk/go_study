@@ -17,5 +17,4 @@ go get "github.com/gorilla/mux"
 
 
 Stopped at:
-https://youtu.be/jFfo23yIWac?t=2111
-https://youtu.be/jFfo23yIWac?t=2501
+https://youtu.be/jFfo23yIWac?t=2626

@@ -62,22 +62,29 @@ func deleteMovie(w http.ResponseWriter, r *http.Request) {
 
 	params := mux.Vars(r)
 
-	log.Println(params)
-	// params["id"]
+	for i, v := range movies {
+		if v.ID == params["id"] {
 
-	// for i, v := range movies {
-	// 	if i.ID == params.id
-	// }
+			// this is how we delete element i of the slice
+			movies = append(movies[:i], movies[i+1:]...)
+
+			message := struct {
+				Message string `json:"message"`
+			}{
+				Message: fmt.Sprintf("Movie with id=%v deleted.", params["id"]),
+			}
+			json.NewEncoder(w).Encode(message)
+			return
+		}
+	}
 
 	message := struct {
 		Message string `json:"message"`
 	}{
-		Message: "Hello from delete",
+		Message: fmt.Sprintf("Movie with %d not found", params["id"]),
 	}
-	// message: fmt.Sprintf("Message from the server ID: %s", string(params["id"])),
-
 	json.NewEncoder(w).Encode(message)
-
+	return
 }
 
 func main() {

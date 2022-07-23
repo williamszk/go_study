@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -15,21 +15,29 @@ func main() {
 	// in the terminal
 	// https://stackoverflow.com/questions/18936662/how-to-wait-for-command-line-input-in-go
 
-	fmt.Println("Choose an option: GET, DELETE")
+	fmt.Println("Choose an option: get, get all, delete")
 
 	buf := bufio.NewReader(os.Stdin)
 	fmt.Print("> ")
 
 	command, err := buf.ReadBytes('\n')
 	if err != nil {
-		log.Fatalln(err)
+		fmt.Println(err)
 	}
 	fmt.Print("\n")
 
 	commStr := string(command)
-	commStr = commStr[:len(commStr)-2]
 
-	if commStr == "GET" {
+	if runtime.GOOS == "windows" {
+		commStr = commStr[:len(commStr)-2]
+	} else if runtime.GOOS == "linux" {
+		commStr = commStr[:len(commStr)-1]
+	} else {
+		fmt.Errorf("We could not identify the OS. Stop the program here.")
+		return
+	}
+
+	if commStr == "get all" {
 
 		func() {
 			// ==================================== //
@@ -39,16 +47,18 @@ func main() {
 
 			res, err := http.Get(url)
 			if err != nil {
-				log.Fatalln(err)
+				fmt.Println(err)
 			}
 			body, err := ioutil.ReadAll(res.Body)
 			if err != nil {
-				log.Fatalln(err)
+				fmt.Println(err)
 			}
 
-			log.Println("Response from get all movies")
-			log.Println(string(body))
+			fmt.Println("Response from get all movies")
+			fmt.Println(string(body))
 		}()
+
+	} else if commStr == "get" {
 
 		func() {
 			// ==================================== //
@@ -58,15 +68,15 @@ func main() {
 
 			res, err := http.Get(url)
 			if err != nil {
-				log.Fatalln(err)
+				fmt.Println(err)
 			}
 			body, err := ioutil.ReadAll(res.Body)
 			if err != nil {
-				log.Fatalln(err)
+				fmt.Println(err)
 			}
 
-			log.Println("Response from get movie with id=1")
-			log.Println(string(body))
+			fmt.Println("Response from get movie with id=1")
+			fmt.Println(string(body))
 		}()
 
 		func() {
@@ -78,29 +88,29 @@ func main() {
 			// create a request
 			req, err := http.NewRequest("GET", url, nil)
 			if err != nil {
-				log.Fatalln("There is a problem with the request:", err)
+				fmt.Println("There is a problem with the request:", err)
 			}
 
 			// fetch request
 			client := &http.Client{}
 			res, err := client.Do(req)
 			if err != nil {
-				log.Fatalln("There is a problem with the response:", err)
+				fmt.Println("There is a problem with the response:", err)
 			}
 			defer res.Body.Close()
 
 			// read response body
 			body, err := ioutil.ReadAll(res.Body)
 			if err != nil {
-				log.Fatalln("There is a problem with read the body:", err)
+				fmt.Println("There is a problem with read the body:", err)
 			}
 
-			log.Println("Response from GET (alternative implementation) movie with id=2")
-			log.Println(string(body))
+			fmt.Println("Response from GET (alternative implementation) movie with id=2")
+			fmt.Println(string(body))
 
 		}()
 
-	} else if commStr == "DELETE" {
+	} else if commStr == "delete" {
 
 		func() {
 			// ==================================== //
@@ -111,25 +121,25 @@ func main() {
 			// create a request
 			req, err := http.NewRequest("DELETE", url, nil)
 			if err != nil {
-				log.Fatalln("There is a problem with the request:", err)
+				fmt.Println("There is a problem with the request:", err)
 			}
 
 			// fetch request
 			client := &http.Client{}
 			res, err := client.Do(req)
 			if err != nil {
-				log.Fatalln("There is a problem with the response:", err)
+				fmt.Println("There is a problem with the response:", err)
 			}
 			defer res.Body.Close()
 
 			// read response body
 			body, err := ioutil.ReadAll(res.Body)
 			if err != nil {
-				log.Fatalln("There is a problem with read the body:", err)
+				fmt.Println("There is a problem with read the body:", err)
 			}
 
-			log.Println("Response from DELETE movie with id=1")
-			log.Println(string(body))
+			fmt.Println("Response from DELETE movie with id=1")
+			fmt.Println(string(body))
 		}()
 
 	} else {

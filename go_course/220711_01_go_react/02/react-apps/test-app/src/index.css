@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+body {
+
+  background-color: rgb(110, 60, 60);
+
+}
+
+.app {
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: 'Silkscreen', cursive;
+  color: white;
+  background-color: rgb(119, 119, 119);
+}

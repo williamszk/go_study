@@ -27,6 +27,8 @@ func main() {
 	fmt.Printf("type of MySli02: %T\n", MySli02)    // []float32 this is an slice
 	fmt.Printf("content of MySli02: %v\n", MySli02) // [0 0 0 0 0]
 
+	// check if we can change 1 object that is owned by 2 variables
+	// changing just of variable
 	fmt.Println("Change the MySli02")
 	MySli02[0] = 999.00
 	fmt.Printf("content of MySli02: %v\n", MySli02) //  [999 0 0 0 0]

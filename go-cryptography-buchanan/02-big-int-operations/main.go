@@ -74,7 +74,7 @@ func main() {
 	result = new(big.Int).Mod(result, prime)
 	fmt.Printf("v1+v2 (mod p)= %s\n", result)
 
-	Invx2 := new(big.Int).ModInverse(x2, prime) // x2^{-1} (mod prime)
+	Invx2 := new(big.Int).ModInverse(x2, prime) // x2^{-1} (mod prime); Invx2*x2 \cong 1 (mod prime)
 	result = new(big.Int).Mul(x1, Invx2)
 	result = new(big.Int).Mod(result, prime)
 	fmt.Printf("v1/v2 (mod p)= %s\n", result)

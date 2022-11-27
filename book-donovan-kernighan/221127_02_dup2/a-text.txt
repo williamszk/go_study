@@ -1,0 +1,7 @@
+This is a text
+We use this text to test
+chunky bacon
+if there is some repeating line in the text
+chunky bacon
+again let's try 
+chunky bacon

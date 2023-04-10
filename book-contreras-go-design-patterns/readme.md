@@ -1,6 +1,6 @@
-Go Design Patterns
+# Go Design Patterns
 
-Learn idiomatic, eﬃcient, clean, and extensible
+Learn idiomatic, efficient, clean, and extensible
 Go design and concurrency patterns by using TDD
 
-Mario Castro Contreras
+Mario Castro Contreras.

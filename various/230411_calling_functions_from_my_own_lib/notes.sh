@@ -21,3 +21,17 @@ go build
 #                 but was required as: github.com/williamszk/a_lib_in_go
 
 # I'll try again another day.
+
+# It is working. I needed to change the tag on git.
+
+go get -u github.com/williamszk/a_lib_in_go
+
+# list the versions of github.com/williamszk/a_lib_in_go
+go list -m -versions github.com/williamszk/a_lib_in_go
+# github.com/williamszk/a_lib_in_go v1.0.0 v1.0.1
+
+go get -u github.com/williamszk/a_lib_in_go
+go list -m -versions github.com/williamszk/a_lib_in_go
+
+go get github.com/williamszk/a_lib_in_go@v1.0.2
+go list -m -versions github.com/williamszk/a_lib_in_go

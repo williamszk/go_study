@@ -12,4 +12,6 @@ func main() {
 	bananas.SayHi()
 	bananas.SayBye()
 
+	bananas.AnotherFuncForPatch2()
+
 }

@@ -3,7 +3,10 @@ go mod init calling_my_own_lib
 
 go clean -modcache
 
+# -u is for updating
 go get github.com/williamszk/a_lib_in_go
+go get -u github.com/williamszk/a_lib_in_go
+go get -u github.com/williamszk/a_lib_in_go@v1.0.1
 # check later inside the go env GOPATH
 # if your lib is installed there
 

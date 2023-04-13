@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/williamszk/a_lib_in_go"
+
+	bananas "github.com/williamszk/a_lib_in_go"
 )
 
 func main() {
 	fmt.Println("Hello World")
-	a_lib_in_go.SayHi()
+
+	bananas.SayHi()
+	bananas.SayBye()
+
 }

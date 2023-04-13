@@ -1,0 +1,7 @@
+
+# ignore executables
+primary
+!primary/
+
+secondary
+!secondary/

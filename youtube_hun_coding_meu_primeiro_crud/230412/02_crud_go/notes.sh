@@ -10,3 +10,19 @@ make build
 
 make build
 ./secondary
+
+
+# Centralize errors standardization
+mkdir -p config/rest_err
+touch config/rest_err/rest_err.go
+
+
+go get -u github.com/gin-gonic/gin
+
+mkdir controller/routes
+touch controller/routes/routes.go
+
+touch controller/find_user.go
+touch controller/create_user.go
+touch controller/delete_user.go
+touch controller/update_user.go

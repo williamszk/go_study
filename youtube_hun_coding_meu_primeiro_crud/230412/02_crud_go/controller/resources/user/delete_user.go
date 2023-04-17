@@ -2,6 +2,6 @@ package user
 
 import "github.com/gin-gonic/gin"
 
-func DeleteUser(c *gin.Context){
+func DeleteUser(c *gin.Context) {
 
 }

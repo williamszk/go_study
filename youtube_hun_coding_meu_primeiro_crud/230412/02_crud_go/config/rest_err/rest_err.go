@@ -16,7 +16,7 @@ type Cause struct {
 
 // To make a Go friendly string error using our RestErr.
 // The Error method is a method from an interface.
-func (r *RestErr) Error() string{
+func (r *RestErr) Error() string {
 	return r.Message
 }
 

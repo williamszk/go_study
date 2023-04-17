@@ -1,7 +1,12 @@
 package user
 
-import "github.com/gin-gonic/gin"
+import (
+	"crud_go/config/rest_err"
 
-func CreateUser(c *gin.Context){
+	"github.com/gin-gonic/gin"
+)
 
+func CreateUser(c *gin.Context) {
+	err := rest_err.NewBadRequestError("Monkey! this is just test")
+	c.JSON(err.Code, err)
 }

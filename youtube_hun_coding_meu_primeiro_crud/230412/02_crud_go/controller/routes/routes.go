@@ -18,4 +18,3 @@ func InitRoutes(r *gin.RouterGroup) {
 	r.DELETE("/deleteUser/:userId",
 		resources_user.DeleteUser)
 }
-

@@ -26,3 +26,10 @@ touch controller/find_user.go
 touch controller/create_user.go
 touch controller/delete_user.go
 touch controller/update_user.go
+
+mkdir controller/model
+mkdir controller/model/request
+mkdir controller/model/response
+
+touch controller/model/request/user_request.go
+touch controller/model/response/user_response.go

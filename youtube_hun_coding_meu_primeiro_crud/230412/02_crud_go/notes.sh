@@ -3,6 +3,9 @@
 
 
 go get github.com/joho/godotenv
+go get github.com/go-playground/validator/v10
+
+go mod tidy
 
 # to run the executable
 make build
@@ -33,3 +36,4 @@ mkdir controller/model/response
 
 touch controller/model/request/user_request.go
 touch controller/model/response/user_response.go
+

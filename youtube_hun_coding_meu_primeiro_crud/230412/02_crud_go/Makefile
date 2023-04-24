@@ -5,4 +5,5 @@ build:
 	go build -o server cmd/server/main.go 
 
 run:
+	go build -o server cmd/server/main.go 
 	./server

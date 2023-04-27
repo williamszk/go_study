@@ -2,8 +2,9 @@
 # https://www.youtube.com/watch?v=-71BdpuaEks&list=PLm-xZWCprwYQ3gyCxJ8TR1L2ZnUOPvOpr&index=3&ab_channel=HunCoding
 
 
-go get github.com/joho/godotenv
-go get github.com/go-playground/validator/v10
+go get github.com/joho/godotenv # to read the .env file
+go get github.com/go-playground/validator/v10 # validator of fields
+go get -u go.uber.org/zap # for logging
 
 go mod tidy
 

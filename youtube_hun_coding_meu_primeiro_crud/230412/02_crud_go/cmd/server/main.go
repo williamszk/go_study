@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crud_go/config/logger"
 	"crud_go/controller/routes"
 	"log"
 
@@ -10,7 +11,9 @@ import (
 
 func main() {
 
-	err := godotenv.Load("secret/.env")
+	logger.Info("About to start application")
+
+	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}

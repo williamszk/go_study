@@ -6,7 +6,7 @@ type RestErr struct {
 	Message string  `json:"message"`
 	Err     string  `json:"error"`
 	Code    int     `json:"code"`
-	Causes  []Cause `json:"causes,omitempty"`
+	Causes  []Cause `json:"causes"`
 }
 
 type Cause struct {

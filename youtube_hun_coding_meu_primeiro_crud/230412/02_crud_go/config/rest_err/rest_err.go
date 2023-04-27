@@ -20,8 +20,8 @@ func (r *RestErr) Error() string {
 	return r.Message
 }
 
-func NewRestErr(message string, err string, code int, causes []Cause) RestErr {
-	return RestErr{
+func NewRestErr(message string, err string, code int, causes []Cause) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     err,
 		Code:    code,
@@ -29,16 +29,16 @@ func NewRestErr(message string, err string, code int, causes []Cause) RestErr {
 	}
 }
 
-func NewBadRequestError(message string) RestErr {
-	return RestErr{
+func NewBadRequestError(message string) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     "bad request",
 		Code:    http.StatusBadRequest,
 	}
 }
 
-func NewBadRequestValidationError(message string, causes []Cause) RestErr {
-	return RestErr{
+func NewBadRequestValidationError(message string, causes []Cause) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     "bad request",
 		Code:    http.StatusBadRequest,
@@ -46,24 +46,24 @@ func NewBadRequestValidationError(message string, causes []Cause) RestErr {
 	}
 }
 
-func NewInternalServerError(message string) RestErr {
-	return RestErr{
+func NewInternalServerError(message string) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     "internal server error",
 		Code:    http.StatusInternalServerError,
 	}
 }
 
-func NewNotFoundError(message string) RestErr {
-	return RestErr{
+func NewNotFoundError(message string) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     "not found error",
 		Code:    http.StatusNotFound,
 	}
 }
 
-func NewForbiddenError(message string) RestErr {
-	return RestErr{
+func NewForbiddenError(message string) *RestErr {
+	return &RestErr{
 		Message: message,
 		Err:     "forbidden",
 		Code:    http.StatusForbidden,

@@ -1,7 +1,7 @@
 package user
 
 import (
-	"crud_go/config/rest_err"
+	"crud_go/config/validation"
 	"crud_go/controller/model/request"
 	"fmt"
 
@@ -15,9 +15,10 @@ func CreateUser(c *gin.Context) {
 	var userRequest request.UserRequest
 
 	if err := c.ShouldBindJSON(&userRequest); err != nil {
-		restErr := rest_err.NewBadRequestError(
-			fmt.Sprintf("Sorry, something is wrong... %s", err.Error()))
-		c.JSON(restErr.Code, restErr)
+		// errRest := rest_err.NewBadRequestError(fmt.Sprintf("Sorry, something is wrong... %s", err.Error()))
+
+		errRest := validation.ValidateUserError(err)
+		c.JSON(errRest.Code, errRest)
 		return
 	}
 

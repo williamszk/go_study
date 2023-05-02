@@ -15,7 +15,6 @@ var (
 )
 
 func init() {
-
 	logConfig := zap.Config{
 		OutputPaths: []string{getOutputLogs()},
 		Level:       zap.NewAtomicLevelAt(getLevelLogs()),

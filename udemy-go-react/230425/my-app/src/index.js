@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import AppClass from './AppClass';
-import HelloWorld from './HelloWorld';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -9,8 +8,7 @@ root.render(
 		<div className="container">
 			<div className="row">
 				<div className="col">
-					<AppClass />
-					<HelloWorld />
+					<App msg="Hello, World from a functional component" />
 				</div>
 			</div>
 		</div>

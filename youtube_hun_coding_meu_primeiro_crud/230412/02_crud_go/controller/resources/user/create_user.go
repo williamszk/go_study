@@ -4,7 +4,8 @@ import (
 	"crud_go/config/logger"
 	"crud_go/config/validation"
 	"crud_go/controller/model/request"
-	"crud_go/model"
+	model_user "crud_go/model/user"
+	"crud_go/model/user/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -13,7 +14,7 @@ import (
 
 var (
 	tagJourney          = zap.String("journey", "createUser")
-	UserDomainInterface model.UserDomainInterface
+	UserDomainInterface model_user.UserDomainInterface
 )
 
 func CreateUser(c *gin.Context) {
@@ -30,14 +31,20 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
-	domain := model.NewUserDomain(
+	domain := model_user.NewUserDomain(
 		userRequest.Email,
 		userRequest.Password,
 		userRequest.Name,
 		userRequest.Age,
 	)
 
-	if err := domain.CreateUser(); err != nil {
+	// if err := domain.CreateUser(); err != nil {
+	// 	c.JSON(err.Code, err)
+	// 	return
+	// }
+
+	service := services.NewUserDomainService()
+	if err := service.CreateUser(domain); err != nil {
 		c.JSON(err.Code, err)
 		return
 	}

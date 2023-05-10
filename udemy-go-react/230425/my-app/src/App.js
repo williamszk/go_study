@@ -51,7 +51,7 @@ function App(props) {
 		event.preventDefault();
 
 		// console.log(firstName, lastName, dateOfBirth);
-		if (lastName != '') {
+		if (lastName !== '') {
 			addPerson(firstName, lastName, dateOfBirth);
 		}
 	};

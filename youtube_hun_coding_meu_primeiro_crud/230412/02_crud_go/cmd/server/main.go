@@ -2,7 +2,9 @@ package main
 
 import (
 	"crud_go/config/logger"
+	resource_user "crud_go/controller/resources/user"
 	"crud_go/controller/routes"
+	"crud_go/model/user/service"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -18,9 +20,15 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	router := gin.Default()
+	// should all dependencies be change in main?
+	// or they could come from a config file?
+	// initialize services (the dependencies)
+	userDomainService := service.NewUserDomainService()
+	userController := resource_user.NewUserControllerInterface(userDomainService)
 
-	routes.InitRoutes(&router.RouterGroup)
+	// initialize routes
+	router := gin.Default()
+	routes.InitRoutes(&router.RouterGroup, userController)
 
 	if err = router.Run(":8080"); err != nil {
 		log.Fatal(err)

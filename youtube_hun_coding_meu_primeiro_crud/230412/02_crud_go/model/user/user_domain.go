@@ -7,7 +7,7 @@ import (
 
 // The Controller will interact with the domain using interfaces or functions that return
 // interfaces. The controller should not have direct access to the Model's structs.
-// (I'm not sure why this would make total sense)
+// (I'm not sure why this would make total sense, when it is not strictly necessary)
 type userDomain struct {
 	email    string
 	password string

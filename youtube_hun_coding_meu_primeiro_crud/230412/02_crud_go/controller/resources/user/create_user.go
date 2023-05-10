@@ -5,7 +5,8 @@ import (
 	"crud_go/config/validation"
 	"crud_go/controller/model/request"
 	model_user "crud_go/model/user"
-	"crud_go/model/user/services"
+	"crud_go/view"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -17,7 +18,7 @@ var (
 	UserDomainInterface model_user.UserDomainInterface
 )
 
-func CreateUser(c *gin.Context) {
+func (u userController) CreateUser(c *gin.Context) {
 	logger.Info("Init CreateUser controller", tagJourney)
 	var userRequest request.UserRequest
 
@@ -38,25 +39,17 @@ func CreateUser(c *gin.Context) {
 		userRequest.Age,
 	)
 
-	// if err := domain.CreateUser(); err != nil {
-	// 	c.JSON(err.Code, err)
-	// 	return
-	// }
+	// we create a new service here
+	// service := service.NewUserDomainService()
 
-	service := services.NewUserDomainService()
-	if err := service.CreateUser(domain); err != nil {
+	if err := u.serviceInterface.CreateUser(domain); err != nil {
 		c.JSON(err.Code, err)
 		return
 	}
 
-	// response := response.UserResponse{
-	// 	Id:    "test",
-	// 	Email: userRequest.Email,
-	// 	Name:  userRequest.Name,
-	// 	Age:   userRequest.Age,
-	// }
-
 	logger.Info("User created successfully.", tagJourney)
+	response := view.ConvertDomainToResponse(domain)
+	logger.Info(fmt.Sprintf("%v", response), tagJourney)
 
-	c.String(http.StatusOK, "")
+	c.JSON(http.StatusOK, response)
 }

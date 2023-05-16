@@ -12,8 +12,8 @@ sudo npm install -g react-scripts
 # to create react application
 npx create-react-app my-app
 
-npm i
 cd my-app
+npm i
 npm start
 
 sudo n 16.4.0

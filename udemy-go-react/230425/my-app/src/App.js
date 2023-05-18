@@ -58,13 +58,13 @@ function App(props) {
 
 	const addPerson = (newFirst, newLast, newDateOfBirth) => {
 		let newPerson = {
-			id: crowd.length + 1,
+			id: this.crowd.length + 1,
 			firstName: newFirst,
 			lastName: newLast,
 			dateOfBirth: newDateOfBirth,
 		};
 
-		const newList = crowd.concat(newPerson);
+		const newList = this.crowd.concat(newPerson);
 
 		const sorted = newList.sort((a, b) => {
 			if (a.lastName < b.lastName) {
@@ -161,7 +161,7 @@ function App(props) {
 			<h3>People</h3>
 
 			<ul className="list-group">
-				{crowd.map((m) => (
+				{this.crowd.map((m) => (
 					<li key={m.id} className="list-group-item">
 						{m.firstName} {m.lastName}
 					</li>

@@ -23,7 +23,7 @@
 # the parameter of a object which the "this" or "self"
 # "pointer value" refers to an object/value which is a pointer to T
 
-
+go run main.go
 
 
 

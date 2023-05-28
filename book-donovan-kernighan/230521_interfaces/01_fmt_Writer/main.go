@@ -19,9 +19,9 @@ func Sprintf(format string, args ...interface{}) string {
 	return buf.String()
 }
 
-// type Writer interface {
-//     Write(p []byte) (n int, err error)
-// }
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
 
 type ByteCounter int
 
@@ -37,7 +37,7 @@ func main() {
 	c.Write([]byte("hello"))
 	fmt.Println(c) // "5", = len("hello")
 
-	c = 0          // reset the counter
+	c = 0 // reset the counter
 	var name = "Dolly"
 	fmt.Fprintf(&c, "hello, %s", name)
 	fmt.Println(c) // "12", = len("hello, Dolly")

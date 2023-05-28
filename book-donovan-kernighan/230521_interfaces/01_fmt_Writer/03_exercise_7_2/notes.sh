@@ -4,4 +4,6 @@
 # that at any moment contains the number of bytes written to the new Writer.
 # func CountingWriter(w io.Writer) (io.Writer, *int64)
 
+touch main.go
+
 

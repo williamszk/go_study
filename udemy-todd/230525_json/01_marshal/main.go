@@ -7,15 +7,15 @@ import (
 
 func main() {
 	p1 := person{
-		first: "James",
-		last:  "Bond",
-		age:   32,
+		First: "James",
+		Last:  "Bond",
+		Age:   32,
 	}
 
 	p2 := person{
-		first: "Miss",
-		last:  "Moneypenny",
-		age:   28,
+		First: "Miss",
+		Last:  "Moneypenny",
+		Age:   28,
 	}
 
 	pSlice := []person{p1, p2}
@@ -32,7 +32,7 @@ func main() {
 }
 
 type person struct {
-	first string
-	last  string
-	age   int
+	First string
+	Last  string
+	Age   int
 }

@@ -1,0 +1,37 @@
+
+type Banana struct {
+
+}
+
+func (b Banana) split(){
+    fmt.Println("Split the banana")
+}
+
+// split can work with both a T which is Banana or *Banana
+// it can work with both the type itself or its pointer
+
+banana := Banana{}
+
+banana.split()
+
+addrBanana := *Banana{}
+// what is the type of addrBanana?
+// it is *Banana a pointer to a Banana
+
+// we can:
+addrBanana.split()
+
+
+// but if we create a method which is
+func (b *Banana) splitThePointer(){
+    fmt.Println("Split the pointer to a banana")
+}
+// this will only work with value which are pointer to Banana
+// what is values whose type is *Banana
+
+// The usual receiver of a method:
+// T *T
+// both of those will work
+
+// if the receiver is a pointer then this only works with
+// *T

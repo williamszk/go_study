@@ -38,3 +38,15 @@ mkdir controller/model/response
 touch controller/model/request/user_request.go
 touch controller/model/response/user_response.go
 
+# --------------------------------------------------------------------------
+# setup mongodb
+docker run --name mongodb_container -d -p 27017:27017 mongo
+docker ps
+
+# install the mongo go driver
+go get go.mongodb.org/mongo-driver/mongo
+
+# --------------------------------------------------------------------------
+
+make build
+./server

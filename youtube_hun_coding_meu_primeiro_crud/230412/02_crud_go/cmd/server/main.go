@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crud_go/config/database/mongodb"
 	"crud_go/config/logger"
 	resource_user "crud_go/controller/resources/user"
 	"crud_go/controller/routes"
@@ -19,6 +20,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	mongodb.InitConnection()
 
 	// should all dependencies be change in main?
 	// or they could come from a config file?

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"crud_go/config/database/mongodb"
 	"crud_go/config/logger"
 	resource_user "crud_go/controller/resources/user"
 	"crud_go/controller/routes"
@@ -21,7 +20,9 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	mongodb.InitConnection()
+	// mongodb.InitConnection()
+	// create the repository then pass the database connection to it
+	// and then we can pass the repository to the service
 
 	// should all dependencies be change in main?
 	// or they could come from a config file?

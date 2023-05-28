@@ -2,22 +2,47 @@ package mongodb
 
 import (
 	"context"
-	"crud_go/config/logger"
+	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func InitConnection() {
-	ctx := context.Background()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://mongodb_container:27017"))
+var (
+	MONGODB_URL     = "MONGODB_URL"
+	MONGODB_USER_DB = "MONGODB_USER_DB"
+)
+
+func NewMongoDbConnection(ctx context.Context) (*mongo.Database, error) {
+	// ctx := context.Background()
+	mongodb_url := os.Getenv(MONGODB_URL)
+	client, err := mongo.Connect(
+		ctx,
+		options.Client().ApplyURI(mongodb_url),
+	)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	if err = client.Ping(ctx, nil); err != nil {
-		panic(err)
+		return nil, err
 	}
+	mongodb_user_db := os.Getenv(MONGODB_USER_DB)
 
-	logger.Info("Able to connect to MongoDB")
+	return client.Database(mongodb_user_db), nil
 }
+
+// func InitConnection() {
+// 	ctx := context.Background()
+// 	// mongodb_url :=
+// 	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	if err = client.Ping(ctx, nil); err != nil {
+// 		panic(err)
+// 	}
+
+// 	logger.Info("Able to connect to MongoDB")
+// }

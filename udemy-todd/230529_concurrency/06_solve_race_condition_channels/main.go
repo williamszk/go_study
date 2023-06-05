@@ -1,3 +1,4 @@
+// I failed to solve the race condition using only channels
 package main
 
 import (

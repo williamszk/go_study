@@ -32,6 +32,8 @@ type shape interface {
 func (c *circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
+// this methods means that only *T implements the shape interface
+// but T does not implement the interface
 
 func info(s shape) {
 	fmt.Println("area", s.area())

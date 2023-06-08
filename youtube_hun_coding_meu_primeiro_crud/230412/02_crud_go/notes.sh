@@ -46,6 +46,11 @@ docker ps
 # install the mongo go driver
 go get go.mongodb.org/mongo-driver/mongo
 
+# The problem that I'm having is that from the main container I need to access
+# a mongodb app running inside another container.
+# I could use docker networks for this. 
+# But can I set a network to a container that is already running?
+
 # --------------------------------------------------------------------------
 
 make build

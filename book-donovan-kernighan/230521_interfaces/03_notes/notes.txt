@@ -1,0 +1,4 @@
+*os.File satisfies io.Reader, Writer, Closer
+
+
+

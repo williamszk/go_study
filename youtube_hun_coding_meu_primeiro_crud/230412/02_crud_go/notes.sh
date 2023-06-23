@@ -55,3 +55,6 @@ go get go.mongodb.org/mongo-driver/mongo
 
 make build
 ./server
+
+make build 
+./test01

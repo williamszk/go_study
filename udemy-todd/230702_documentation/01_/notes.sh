@@ -1,4 +1,6 @@
 
+sudo apt update
+sudo apt install golang-golang-x-tools
 
 go mod init my_project
 

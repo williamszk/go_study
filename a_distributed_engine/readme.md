@@ -46,7 +46,7 @@ This is a place to write some code for a distributed engine.
 - [ ] We'll build a cluster of containers. There is the manager node and the worker
       nodes. In the manager node we should be able to send commands. The manager node
       will not execute those commands, it will pass them to the worker nodes.
-- [ ] I have two alternatives when creating a dustr cluster. 1) Create a standard
+- [ ] I have two alternatives when creating a dengo cluster. 1) Create a standard
       cluster. We will directly configure the nodes on the cluster. 2) Use on top
       of Kubernetes, or any other container orchestrator. It could be also docker swarm.
 - [ ] I'm assuming a client-server relationship in the cluster. But we could
